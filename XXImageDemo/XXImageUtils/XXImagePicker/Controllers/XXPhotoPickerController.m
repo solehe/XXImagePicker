@@ -259,6 +259,8 @@
 - (void)pickerTabBarDidClickPreview:(XXPickerTabBar *)bar {
     // 跳转到预览页面
     XXImagePrevViewController *prevVc = [[XXImagePrevViewController alloc] initWithConfigure:self.configure];
+    [prevVc setPhotos:[self.selectedPhotos copy]];
+    [prevVc setSelectedPhotos:self.selectedPhotos];
     [self.navigationController pushViewController:prevVc animated:YES];
 }
 

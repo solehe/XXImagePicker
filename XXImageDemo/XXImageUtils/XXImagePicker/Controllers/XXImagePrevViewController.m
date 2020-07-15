@@ -42,9 +42,15 @@
     if (!_navigationBar) {
         _navigationBar = [[XXPrevNavigationBar alloc] init];
         [_navigationBar setFrame:CGRectMake(0, 0, SCREEN_WIDTH, kNAVIBAR_HEIGHT)];
-        [_navigationBar setBackgroundColor:[UIColor colorWithWhite:0.f alpha:0.1]];
+        [_navigationBar setBackgroundColor:[UIColor clearColor]];
         [_navigationBar setDelegate:self];
         [self.view insertSubview:_navigationBar aboveSubview:self.prevViewTabBar];
+        
+        // 模糊效果
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+        [effectview setFrame:CGRectMake(0, 0, W(_navigationBar), H(_navigationBar))];
+        [_navigationBar addSubview:effectview];
     }
     return _navigationBar;
 }
@@ -56,6 +62,12 @@
         [_prevViewTabBar setBackgroundColor:[UIColor clearColor]];
         [_prevViewTabBar setFrame:CGRectMake(0, H(self.view)-kTABBAR_HEIGHT, SCREEN_WIDTH, kTABBAR_HEIGHT)];
         [self.view addSubview:_prevViewTabBar];
+        
+        // 模糊效果
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+        [effectview setFrame:CGRectMake(0, 0, W(_prevViewTabBar), H(_prevViewTabBar))];
+        [_prevViewTabBar addSubview:effectview];
     }
     return _prevViewTabBar;
 }

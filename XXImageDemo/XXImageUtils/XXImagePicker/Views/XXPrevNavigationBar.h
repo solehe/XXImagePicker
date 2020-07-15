@@ -29,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIButton *backButton;
 // 标题
 @property (nonatomic, strong) UILabel *titleLabel;
+// 选择按钮
+@property (nonatomic, strong) UIButton *selectButton;
+// 右上角选中计数
+@property (nonatomic, strong) UILabel *countLabel;
 
 @end
 
